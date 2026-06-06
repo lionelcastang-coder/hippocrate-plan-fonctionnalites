@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PA3 — Module interactions médicamenteuses · HippocrIAte</title>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#063147;--cyan:#01BAEF;--teal:#20A39E;--amber:#FFB627;
+--light:#F4F9FC;--gray:#E8EFF3;--border:#CFD8DC;--text:#1A2B3C;--muted:#5C7080;
+--success:#2E7D32;--danger:#C62828;}
+html,body{background:var(--light);color:var(--text);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+line-height:1.55;font-size:15px;overflow-x:hidden}
+a{color:var(--cyan);text-decoration:none}
+.site-header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:100}
+.header-top{padding:10px 24px;display:flex;align-items:center;justify-content:space-between;
+border-bottom:1px solid rgba(255,255,255,.08)}
+.brand{font-size:20px;font-weight:800;letter-spacing:-.5px;white-space:nowrap}
+.brand span{color:var(--cyan)}
+.nav-back{color:var(--cyan);font-size:12px;font-weight:600;white-space:nowrap}
+.nav-back:hover{opacity:.8}
+.header-sub{padding:6px 24px;display:flex;gap:8px;font-size:12px;color:#8BA4B2;
+align-items:center;flex-wrap:wrap}
+.seg-badge{padding:2px 10px;border-radius:20px;font-size:10px;font-weight:700;
+letter-spacing:.5px;text-transform:uppercase}
+.feat-header{color:#fff;padding:30px 24px 26px}
+.feat-inner{display:flex;align-items:center;gap:24px;max-width:780px;margin:0 auto}
+.feat-text{flex:1;min-width:0}
+.feat-num{font-size:11px;font-weight:700;color:rgba(255,255,255,.7);
+text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+.feat-title{font-size:28px;font-weight:800;line-height:1.15;margin-bottom:10px}
+.feat-sub{font-size:14px;color:rgba(255,255,255,.82);line-height:1.5}
+.feat-right{display:flex;align-items:center;gap:16px;flex-shrink:0}
+.feat-kpis{display:flex;flex-direction:column;gap:8px}
+.feat-kpi{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+border-radius:10px;padding:8px 14px;min-width:150px}
+.kpi-label{font-size:10px;font-weight:700;color:var(--cyan);
+text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+.star{font-size:13px}.star.on{color:var(--amber)}.star.off{color:rgba(255,255,255,.22)}
+.feat-picto{width:88px;height:88px;background:rgba(255,255,255,.1);
+border:1px solid rgba(255,255,255,.18);border-radius:20px;display:flex;
+align-items:center;justify-content:center;font-size:42px;flex-shrink:0}
+.plan-pill{display:inline-block;padding:3px 12px;border-radius:20px;
+font-size:10px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;
+background:rgba(255,255,255,.18);color:#fff;margin-top:10px}
+.main-layout{max-width:780px;margin:0 auto;padding:26px 16px;
+display:flex;flex-direction:column;gap:22px}
+.value-card{background:#fff;border-radius:14px;border:1px solid var(--border);padding:22px 26px}
+.value-eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;
+letter-spacing:1px;margin-bottom:5px}
+.value-title{font-size:19px;font-weight:700;color:var(--navy);margin-bottom:18px;
+line-height:1.3;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.value-items{display:flex;flex-direction:column;gap:16px}
+.vi-row{display:flex;align-items:flex-start;gap:14px}
+.vi-icon{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;
+justify-content:center;font-size:21px;flex-shrink:0}
+.vi-icon.blue{background:rgba(1,186,239,.12)}
+.vi-icon.teal{background:rgba(32,163,158,.12)}
+.vi-icon.amber{background:rgba(255,182,39,.15)}
+.vi-icon.green{background:rgba(46,125,50,.1)}
+.vi-icon.purple{background:rgba(103,58,183,.1)}
+.vi-icon.red{background:rgba(192,0,0,.1)}
+.vi-body{flex:1;min-width:0}
+.vi-title{font-weight:700;font-size:14px;color:var(--navy);margin-bottom:3px}
+.vi-desc{font-size:13px;color:var(--muted);line-height:1.55}
+.browser{background:#fff;border-radius:14px;
+box-shadow:0 6px 28px rgba(6,49,71,.12);border:1px solid var(--border);overflow:hidden}
+.browser-bar{background:var(--gray);padding:8px 12px;display:flex;
+align-items:center;gap:8px;border-bottom:1px solid var(--border)}
+.dot{width:10px;height:10px;border-radius:50%}
+.dot.r{background:#E57373}.dot.y{background:#FFC107}.dot.g{background:#66BB6A}
+.url-bar{flex:1;background:#fff;border-radius:10px;padding:3px 10px;
+font-size:12px;color:var(--muted);font-family:monospace;margin-left:6px;
+white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.browser-body{padding:18px;min-height:300px}
+.nav-zone{max-width:780px;margin:0 auto;padding:0 16px 8px}
+.nav-inner{border-top:1px solid var(--border);padding:22px 0;
+display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.nav-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;
+border-radius:20px;border:1.5px solid var(--border);font-weight:600;font-size:14px;
+color:var(--navy);transition:.15s;background:#fff;white-space:nowrap}
+.nav-btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.nav-btn.primary{background:var(--cyan);color:var(--navy);border-color:var(--cyan)}
+.nav-num{font-size:11px;font-weight:700;background:rgba(0,0,0,.1);
+border-radius:4px;padding:1px 6px;white-space:nowrap}
+footer{background:var(--navy);color:#8BA4B2;text-align:center;
+padding:22px 32px;font-size:13px;margin-top:32px}
+footer .brand{display:inline-block;margin-bottom:5px}
+.chip{display:inline-block;padding:3px 10px;border-radius:20px;
+font-size:11px;font-weight:700}
+.chip.green{background:#E8F5E9;color:#2E7D32}
+.chip.red{background:#FFEBEE;color:#C62828}
+.chip.orange{background:#FFF3E0;color:#E65100}
+.chip.blue{background:#E3F2FD;color:#1565C0}
+.chip.purple{background:#F3E5F5;color:#6A1B9A}
+.chip.amber{background:#FFF8E1;color:#F57F17}
+@media(max-width:600px){
+.feat-header{padding:20px 14px 16px}
+.feat-inner{flex-direction:column;gap:14px}
+.feat-title{font-size:21px}
+.feat-right{width:100%;justify-content:space-between}
+.feat-kpi{min-width:0;flex:1}.feat-picto{width:72px;height:72px;font-size:34px}
+.main-layout{padding:18px 12px;gap:18px}
+.value-card{padding:18px}
+.nav-btn{font-size:12px;padding:8px 12px}
+}</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-top">
+    <a href="../../index.html" class="brand">Hippocr<span>IA</span>te</a>
+    <a href="index.html" class="nav-back">← Plan Intensif · Pharmacie</a>
+  </div>
+  <div class="header-sub">
+    <span class="seg-badge" style="background:#7030A022;color:#7030A0">Pharmacie 💊</span>
+    <span>·</span>
+    <span class="seg-badge" style="background:#ED7D3122;color:#ED7D31">Plan Intensif</span>
+  </div>
+</header>
+
+<div class="feat-header" style="background:linear-gradient(135deg,#ED7D31 0%,#7030A0 100%)">
+  <div class="feat-inner">
+    <div class="feat-text">
+      <div class="feat-num">PA3 · Pharmacie 💊</div>
+      <h1 class="feat-title">Module interactions médicamenteuses</h1>
+      <p class="feat-sub">Explorer les interactions ANSM des molécules de tes cours — mécanismes PK/PD, niveaux de gravité codés.</p>
+      <span class="plan-pill">Plan Intensif</span>
+    </div>
+    <div class="feat-right">
+      <div class="feat-kpis">
+        <div class="feat-kpi">
+          <div class="kpi-label">Sécurité</div>
+          <div><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span></div>
+        </div>
+        <div class="feat-kpi">
+          <div class="kpi-label">Exhaustivité</div>
+          <div><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span></div>
+        </div>
+      </div>
+      <div class="feat-picto">⚠️</div>
+    </div>
+  </div>
+</div>
+
+<div class="main-layout">
+  <div class="browser">
+    <div class="browser-bar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="url-bar">app.hippocriate.fr/pharmacie/interactions</span>
+    </div>
+    <div class="browser-body">
+<div style="font-size:13px">
+  <div style="margin-bottom:12px;display:flex;align-items:center;justify-content:space-between">
+    <div>
+      <span style="font-size:11px;font-weight:700;color:#ED7D31;text-transform:uppercase;letter-spacing:.8px">Interactions détectées</span>
+      <div style="font-size:14px;font-weight:700;color:#1A2B3C;margin-top:3px">Warfarine + Amoxicilline</div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">
+    <div style="border-left:4px solid #E65100;background:#FFF3E0;border-radius:0 8px 8px 0;padding:10px 14px">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+        <span class="chip orange">Association déconseillée</span>
+        <span style="font-size:11px;color:#5C7080">Classification ANSM</span>
+      </div>
+      <div style="font-size:12px;color:#1A2B3C;line-height:1.6">
+        <strong>Mécanisme :</strong> Modification flore intestinale → ↓ synthèse vit. K2 → potentialisation de l'anticoagulation.<br>
+        <strong>Conséquence :</strong> Risque hémorragique par augmentation de l'INR.
+      </div>
+    </div>
+    <div style="background:#F4F9FC;border:1px solid #CFD8DC;border-radius:8px;padding:10px 14px">
+      <div style="font-size:11px;font-weight:700;color:#1565C0;margin-bottom:5px">📋 Conduite à tenir</div>
+      <div style="font-size:12px;color:#1A2B3C;line-height:1.6">Surveillance renforcée de l'INR pendant le traitement et 8 jours après l'arrêt. Adapter la dose de warfarine si nécessaire.</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap">
+    <span class="chip red" style="font-size:10px">Contre-indication abs.</span>
+    <span class="chip orange" style="font-size:10px;border:2px solid #E65100">Déconseillée ←</span>
+    <span class="chip amber" style="font-size:10px">Précaution d'emploi</span>
+    <span class="chip blue" style="font-size:10px">À prendre en compte</span>
+  </div>
+</div></div>
+  </div>
+  <div class="value-card">
+    <div class="value-eyebrow" style="color:#ED7D31">Valeur ajoutée pour l'étudiant en pharmacie</div>
+    <h2 class="value-title">Maîtriser les interactions avant de les subir en examen</h2>
+    <div class="value-items"><div class="vi-row">
+  <div class="vi-icon red">⚠️</div>
+  <div class="vi-body"><div class="vi-title">4 niveaux de gravité ANSM</div><div class="vi-desc">Contre-indication absolue, association déconseillée, précaution d'emploi, à prendre en compte — avec code couleur.</div></div>
+</div><div class="vi-row">
+  <div class="vi-icon purple">🔬</div>
+  <div class="vi-body"><div class="vi-title">Mécanismes expliqués</div><div class="vi-desc">PK (absorption, distribution, métabolisme, élimination) et PD (effets antagonistes ou synergiques).</div></div>
+</div><div class="vi-row">
+  <div class="vi-icon teal">📚</div>
+  <div class="vi-body"><div class="vi-title">Ancré dans tes cours</div><div class="vi-desc">Les molécules scannées viennent de tes cours uploadés — pas d'une base générique non contextualisée.</div></div>
+</div><div class="vi-row">
+  <div class="vi-icon amber">🧪</div>
+  <div class="vi-body"><div class="vi-title">Cas cliniques d'application</div><div class="vi-desc">Situations pratiques pour t'entraîner à détecter et gérer les interactions en conditions d'examen.</div></div>
+</div><div class="vi-row">
+  <div class="vi-icon green">🔗</div>
+  <div class="vi-body"><div class="vi-title">Liaison avec PA1</div><div class="vi-desc">Depuis une fiche DCI, accède directement aux interactions connues de la molécule.</div></div>
+</div></div>
+  </div>
+</div>
+
+<div class="nav-zone">
+  <div class="nav-inner">
+    <a href="pa2.html" class="nav-btn">← PA2 — Pharmacocinétique</a>
+    <a href="../../concours/pa4.html" class="nav-btn primary">PA4 — Dossier pharmaceutique simulé →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="brand">Hippocr<span style="color:var(--cyan)">IA</span>te</div>
+  <p>Le tuteur IA personnalisé pour réussir ses études de santé.</p>
+</footer>
+</body>
+</html>
