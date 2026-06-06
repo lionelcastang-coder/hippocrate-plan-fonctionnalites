@@ -3,137 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plan Mobile add-on — Médecine · HippocrIAte</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --navy:#063147;--cyan:#01BAEF;--teal:#20A39E;--amber:#FFB627;
-  --light:#F4F9FC;--gray:#E8EFF3;--border:#CFD8DC;
-  --text:#1A2B3C;--muted:#5C7080;--white:#fff;
-}
+<title>Plan Mobile — Médecine 🏥 · HippocrIAte</title>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#063147;--cyan:#01BAEF;--light:#F4F9FC;--border:#CFD8DC;--text:#1A2B3C;--muted:#5C7080;}
 html,body{background:var(--light);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.55;font-size:15px}
 a{color:inherit;text-decoration:none}
 .site-header{background:var(--navy);color:#fff;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.brand{font-size:18px;font-weight:800;letter-spacing:-0.5px}
-.brand span{color:var(--cyan)}
+.brand{font-size:18px;font-weight:800}.brand span{color:var(--cyan)}
 .nav-back{color:var(--cyan);font-size:12px;font-weight:600}
-.hero{padding:36px 24px 28px;color:#fff;text-align:center}
-.hero h1{font-size:28px;font-weight:800;line-height:1.2;margin-bottom:8px}
-.hero p{font-size:14px;opacity:.85;max-width:520px;margin:0 auto}
-.badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:20px;background:rgba(255,255,255,.2);color:#fff;margin-bottom:8px}
-.price-tag{font-size:32px;font-weight:800;margin-top:10px}
+.hero{padding:32px 24px 26px;color:#fff;text-align:center}
+.hero h1{font-size:26px;font-weight:800;line-height:1.2;margin-bottom:8px}
+.hero p{font-size:13px;opacity:.85;max-width:500px;margin:0 auto}
+.price-tag{font-size:30px;font-weight:800;margin-top:10px}
 .price-sub{font-size:12px;opacity:.7;font-style:italic}
-.container{max-width:860px;margin:0 auto;padding:28px 16px}
-.grid{display:grid;gap:18px}
-.grid-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-.grid-4{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
-.card{background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;transition:.15s;display:block}
-.card:hover{box-shadow:0 6px 24px rgba(6,49,71,.12);transform:translateY(-2px)}
-.card-header{padding:18px 20px 14px;color:#fff}
-.card-header .emoji{font-size:28px;margin-bottom:8px;display:block}
-.card-header h2{font-size:17px;font-weight:800;line-height:1.2}
-.card-header p{font-size:12px;opacity:.8;margin-top:4px}
-.card-body{padding:14px 20px 18px}
-.card-body .pop{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:10px}
-.plan-link{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-radius:8px;margin-bottom:6px;font-size:13px;font-weight:600;border:1.5px solid transparent;transition:.12s}
-.plan-link:hover{opacity:.9}
-.feat-list{display:flex;flex-direction:column;gap:6px;padding:0 16px 20px}
-.feat-row{display:flex;align-items:flex-start;gap:12px;padding:10px 14px;background:#fff;border-radius:10px;border:1px solid var(--border)}
+.badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:20px;background:rgba(255,255,255,.2);color:#fff;margin-bottom:8px}
+.container{max-width:860px;margin:0 auto;padding:24px 16px}
+.feat-list{display:flex;flex-direction:column;gap:8px}
+.feat-row{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;background:#fff;border-radius:10px;border:1px solid var(--border);transition:.12s}
 .feat-row:hover{border-color:var(--cyan);background:#f0fbff}
-.feat-id{font-size:10px;font-weight:800;padding:2px 7px;border-radius:6px;white-space:nowrap;flex-shrink:0;margin-top:1px}
-.feat-content{flex:1;min-width:0}
-.feat-content strong{font-size:13px;font-weight:700;display:block;line-height:1.3}
-.feat-content span{font-size:12px;color:var(--muted);display:block;margin-top:2px;line-height:1.4}
-.new-badge{font-size:9px;font-weight:700;letter-spacing:.5px;padding:1px 6px;border-radius:4px;background:#fef3c7;color:#92400e;margin-left:6px;vertical-align:middle}
-.section-title{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;padding:16px 16px 8px}
-.plan-tabs{display:flex;gap:4px;padding:0 16px 12px;flex-wrap:wrap}
-.plan-tab{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid;transition:.12s;cursor:pointer}
-.plan-tab.active,.plan-tab:hover{color:#fff}
-.footer-nav{background:#fff;border-top:1px solid var(--border);padding:16px 24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.nav-btn{padding:8px 18px;border-radius:20px;border:1.5px solid var(--border);font-size:13px;font-weight:600;color:var(--navy);transition:.12s}
+.feat-id{font-size:10px;font-weight:800;padding:2px 7px;border-radius:6px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+.feat-content strong{font-size:13px;font-weight:700;display:block}
+.feat-content span{font-size:12px;color:var(--muted)}
+.footer-nav{background:#fff;border-top:1px solid var(--border);padding:14px 24px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.nav-btn{padding:8px 18px;border-radius:20px;border:1.5px solid var(--border);font-size:13px;font-weight:600;color:var(--navy)}
 .nav-btn:hover{border-color:var(--cyan);color:var(--cyan)}
-.inc-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);padding:14px 16px 6px;display:block}
-@media(max-width:600px){.grid-4{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:22px}}
-</style>
+.note{font-size:12px;color:var(--muted);text-align:center;padding:8px 0}</style>
 </head>
 <body>
 <header class="site-header">
-  <a class="brand" href="../../index.html">Hippocr<span>IA</span>te</a>
-  <a class="nav-back" href="../index.html">← 🏥 Médecine</a>
+  <a href="../../index.html" class="brand">Hippocr<span>IA</span>te</a>
+  <a href="../index.html" class="nav-back">← Médecine 🏥</a>
 </header>
 <div class="hero" style="background:linear-gradient(135deg,#067669 0%,#1F497D 100%)">
   <span class="badge">ADD-ON</span>
-  <h1>Plan Mobile add-on · 🏥 Médecine</h1>
-  <p>App Voice & Nomade (incluse dans Concours)</p>
-  <div class="price-tag">+9,90 €<span class="price-sub"> EUR TTC / mois · sans engagement</span></div>
+  <h1>Plan Mobile add-on · Médecine 🏥</h1>
+  <p>App Voice & Nomade — incluse dans le Plan Concours ou en add-on</p>
+  <div class="price-tag">+9,90 €<span class="price-sub"> EUR TTC / mois</span></div>
 </div>
-<div style="padding:12px 16px 0;max-width:860px;margin:0 auto">
-  <div class="plan-tabs"><a class="plan-tab " style="border-color:#0070C0;color:#0070C0;" href="../essentiel/index.html">Essentiel</a><a class="plan-tab " style="border-color:#ED7D31;color:#ED7D31;" href="../intensif/index.html">Intensif</a><a class="plan-tab " style="border-color:#5B4B8A;color:#5B4B8A;" href="../concours/index.html">Concours</a><a class="plan-tab active" style="background:#067669;border-color:#067669;color:#fff;" href="../mobile/index.html">Mobile add-on</a></div>
+<div style="padding:8px 16px 0;max-width:860px;margin:0 auto;display:flex;flex-wrap:wrap">
+  <span style="border-color:#0070C0;color:#0070C0;display:inline-block;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid;margin:2px 2px 8px;"><a href="../essentiel/index.html" style="color:inherit">Essentiel</a></span><span style="border-color:#ED7D31;color:#ED7D31;display:inline-block;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid;margin:2px 2px 8px;"><a href="../intensif/index.html" style="color:inherit">Intensif</a></span><span style="border-color:#5B4B8A;color:#5B4B8A;display:inline-block;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid;margin:2px 2px 8px;"><a href="../concours/index.html" style="color:inherit">Concours</a></span><span style="background:#067669;border-color:#067669;color:#fff;display:inline-block;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid;margin:2px 2px 8px;"><b><a href="../mobile/index.html" style="color:inherit">Mobile add-on</a></b></span>
 </div>
-<div style="max-width:860px;margin:0 auto;padding-bottom:24px">
-  <div class="inc-label" style="font-size:13px;color:var(--text)">
-    8 fonctionnalités incluses dans ce plan
-  </div>
-  <div class="inc-label">8 fonctionnalités mobiles exclusives — 8 fonctionnalités</div><div class="feat-list"><a class="feat-row" href="../../medecine/mobile/m1.html">
+<div class="container">
+  <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">8 fonctionnalités mobiles exclusives</div>
+  <div class="feat-list"><a class="feat-row" href="../../mobile/m1.html">
   <span class="feat-id" style="background:#06766922;color:#067669">M1</span>
   <div class="feat-content">
-    <strong>App mobile native iOS & Android<span class="new-badge">NOUVEAU</span></strong>
-    <span>Application dédiée, interface optimisée tactile, fluide et rapide.</span>
+    <strong>📱 App mobile native iOS & Android</strong>
+    <span>Plan Mobile add-on · +9,90 €/mois</span>
   </div>
-</a>
-<a class="feat-row" href="../../medecine/mobile/m2.html">
+</a><a class="feat-row" href="../../mobile/m2.html">
   <span class="feat-id" style="background:#06766922;color:#067669">M2</span>
   <div class="feat-content">
-    <strong>Mode hors-ligne<span class="new-badge">NOUVEAU</span></strong>
-    <span>Accès à tes cours, QCM et flashcards sans connexion internet.</span>
+    <strong>✈️ Mode hors-ligne</strong>
+    <span>Plan Mobile add-on · +9,90 €/mois</span>
   </div>
-</a>
-<a class="feat-row" href="../../medecine/mobile/m3.html">
+</a><a class="feat-row" href="../../mobile/m3.html">
   <span class="feat-id" style="background:#06766922;color:#067669">M3</span>
   <div class="feat-content">
-    <strong>Notifications push intelligentes<span class="new-badge">NOUVEAU</span></strong>
-    <span>Rappels de révision au bon moment, alertes planning adaptatif.</span>
+    <strong>🔔 Notifications push intelligentes</strong>
+    <span>Plan Mobile add-on · +9,90 €/mois</span>
   </div>
-</a>
-<a class="feat-row" href="../../medecine/mobile/m4.html">
+</a><a class="feat-row" href="../../mobile/m4.html">
   <span class="feat-id" style="background:#06766922;color:#067669">M4</span>
   <div class="feat-content">
-    <strong>Widget révision rapide<span class="new-badge">NOUVEAU</span></strong>
-    <span>Flashcard du jour, score et progression directement sur l'écran d'accueil.</span>
+    <strong>🪟 Widget révision rapide</strong>
+    <span>Plan Mobile add-on · +9,90 €/mois</span>
   </div>
-</a>
-<a class="feat-row" href="../../medecine/mobile/m5.html">
+</a><a class="feat-row" href="../../mobile/m5.html">
   <span class="feat-id" style="background:#06766922;color:#067669">M5</span>
   <div class="feat-content">
-    <strong>AR Anatomy 3D<span class="new-badge">NOUVEAU</span></strong>
-    <span>Réalité augmentée pour superposer des modèles anatomiques sur ton environnement.</span>
+    <strong>🥽 AR Anatomy 3D</strong>
+    <span>Plan Mobile add-on · +9,90 €/mois</span>
   </div>
-</a>
-<a class="feat-row" href="../../medecine/mobile/m6.html">
+</a><a class="feat-row" href="../../mobile/m6.html">
   <span class="feat-id" style="background:#06766922;color:#067669">M6</span>
   <div class="feat-content">
-    <strong>Reconnaissance vocale intégrée<span class="new-badge">NOUVEAU</span></strong>
-    <span>Active le tuteur vocal en un tap, sans application tierce.</span>
+    <strong>🎙️ Reconnaissance vocale intégrée</strong>
+    <span>Plan Mobile add-on · +9,90 €/mois</span>
   </div>
-</a>
-<a class="feat-row" href="../../medecine/mobile/m7.html">
+</a><a class="feat-row" href="../../mobile/m7.html">
   <span class="feat-id" style="background:#06766922;color:#067669">M7</span>
   <div class="feat-content">
-    <strong>Synchronisation multi-devices<span class="new-badge">NOUVEAU</span></strong>
-    <span>Tes données, progression et notes synchronisées en temps réel entre tous tes appareils.</span>
+    <strong>🔄 Synchronisation multi-devices</strong>
+    <span>Plan Mobile add-on · +9,90 €/mois</span>
   </div>
-</a>
-<a class="feat-row" href="../../medecine/mobile/m8.html">
+</a><a class="feat-row" href="../../mobile/m8.html">
   <span class="feat-id" style="background:#06766922;color:#067669">M8</span>
   <div class="feat-content">
-    <strong>Mode sombre natif<span class="new-badge">NOUVEAU</span></strong>
-    <span>Interface optimisée pour réviser la nuit sans fatigue oculaire.</span>
+    <strong>🌙 Mode sombre natif</strong>
+    <span>Plan Mobile add-on · +9,90 €/mois</span>
   </div>
 </a></div>
+  <p class="note" style="margin-top:12px">📱 Compatible iOS 14+ et Android 10+ · Inclus dans le Plan Concours</p>
 </div>
 <div class="footer-nav">
-  <a class="nav-btn" href="../index.html">← 🏥 Médecine</a>
-  <a class="nav-btn" href="../../kinesitherapie/mobile/index.html">🤸 Kinésithérapie</a><a class="nav-btn" href="../../dentaire/mobile/index.html">🦷 Dentaire</a><a class="nav-btn" href="../../pharmacie/mobile/index.html">💊 Pharmacie</a>
+  <a class="nav-btn" href="../index.html">← Médecine 🏥</a>
+  <a class="nav-btn" href="../../kinesitherapie/mobile/index.html">Kinésithérapie 🤸</a><a class="nav-btn" href="../../dentaire/mobile/index.html">Dentaire 🦷</a><a class="nav-btn" href="../../pharmacie/mobile/index.html">Pharmacie 💊</a>
 </div>
 </body>
 </html>
