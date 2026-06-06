@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Essentiel — Pharmacie · HippocrIAte</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#063147;--cyan:#01BAEF;--teal:#20A39E;--amber:#FFB627;
+  --light:#F4F9FC;--gray:#E8EFF3;--border:#CFD8DC;
+  --text:#1A2B3C;--muted:#5C7080;--white:#fff;
+}
+html,body{background:var(--light);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.55;font-size:15px}
+a{color:inherit;text-decoration:none}
+.site-header{background:var(--navy);color:#fff;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.brand{font-size:18px;font-weight:800;letter-spacing:-0.5px}
+.brand span{color:var(--cyan)}
+.nav-back{color:var(--cyan);font-size:12px;font-weight:600}
+.hero{padding:36px 24px 28px;color:#fff;text-align:center}
+.hero h1{font-size:28px;font-weight:800;line-height:1.2;margin-bottom:8px}
+.hero p{font-size:14px;opacity:.85;max-width:520px;margin:0 auto}
+.badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:20px;background:rgba(255,255,255,.2);color:#fff;margin-bottom:8px}
+.price-tag{font-size:32px;font-weight:800;margin-top:10px}
+.price-sub{font-size:12px;opacity:.7;font-style:italic}
+.container{max-width:860px;margin:0 auto;padding:28px 16px}
+.grid{display:grid;gap:18px}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.grid-4{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.card{background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;transition:.15s;display:block}
+.card:hover{box-shadow:0 6px 24px rgba(6,49,71,.12);transform:translateY(-2px)}
+.card-header{padding:18px 20px 14px;color:#fff}
+.card-header .emoji{font-size:28px;margin-bottom:8px;display:block}
+.card-header h2{font-size:17px;font-weight:800;line-height:1.2}
+.card-header p{font-size:12px;opacity:.8;margin-top:4px}
+.card-body{padding:14px 20px 18px}
+.card-body .pop{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:10px}
+.plan-link{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-radius:8px;margin-bottom:6px;font-size:13px;font-weight:600;border:1.5px solid transparent;transition:.12s}
+.plan-link:hover{opacity:.9}
+.feat-list{display:flex;flex-direction:column;gap:6px;padding:0 16px 20px}
+.feat-row{display:flex;align-items:flex-start;gap:12px;padding:10px 14px;background:#fff;border-radius:10px;border:1px solid var(--border)}
+.feat-row:hover{border-color:var(--cyan);background:#f0fbff}
+.feat-id{font-size:10px;font-weight:800;padding:2px 7px;border-radius:6px;white-space:nowrap;flex-shrink:0;margin-top:1px}
+.feat-content{flex:1;min-width:0}
+.feat-content strong{font-size:13px;font-weight:700;display:block;line-height:1.3}
+.feat-content span{font-size:12px;color:var(--muted);display:block;margin-top:2px;line-height:1.4}
+.new-badge{font-size:9px;font-weight:700;letter-spacing:.5px;padding:1px 6px;border-radius:4px;background:#fef3c7;color:#92400e;margin-left:6px;vertical-align:middle}
+.section-title{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;padding:16px 16px 8px}
+.plan-tabs{display:flex;gap:4px;padding:0 16px 12px;flex-wrap:wrap}
+.plan-tab{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid;transition:.12s;cursor:pointer}
+.plan-tab.active,.plan-tab:hover{color:#fff}
+.footer-nav{background:#fff;border-top:1px solid var(--border);padding:16px 24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.nav-btn{padding:8px 18px;border-radius:20px;border:1.5px solid var(--border);font-size:13px;font-weight:600;color:var(--navy);transition:.12s}
+.nav-btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.inc-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);padding:14px 16px 6px;display:block}
+@media(max-width:600px){.grid-4{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:22px}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../../index.html">Hippocr<span>IA</span>te</a>
+  <a class="nav-back" href="../index.html">← 💊 Pharmacie</a>
+</header>
+<div class="hero" style="background:linear-gradient(135deg,#0070C0 0%,#7030A0 100%)">
+  <span class="badge">STARTER</span>
+  <h1>Plan Essentiel · 💊 Pharmacie</h1>
+  <p>Essai gratuit 14 jours — sans CB</p>
+  <div class="price-tag">29,90 €<span class="price-sub"> EUR TTC / mois · sans engagement</span></div>
+</div>
+<div style="padding:12px 16px 0;max-width:860px;margin:0 auto">
+  <div class="plan-tabs"><a class="plan-tab active" style="background:#0070C0;border-color:#0070C0;color:#fff;" href="../essentiel/index.html">Essentiel</a><a class="plan-tab " style="border-color:#ED7D31;color:#ED7D31;" href="../intensif/index.html">Intensif</a><a class="plan-tab " style="border-color:#5B4B8A;color:#5B4B8A;" href="../concours/index.html">Concours</a><a class="plan-tab " style="border-color:#067669;color:#067669;" href="../mobile/index.html">Mobile add-on</a></div>
+</div>
+<div style="max-width:860px;margin:0 auto;padding-bottom:24px">
+  <div class="inc-label" style="font-size:13px;color:var(--text)">
+    11 fonctionnalités incluses dans ce plan
+  </div>
+  <div class="inc-label">Socle commun — tous les segments — 10 fonctionnalités</div><div class="feat-list"><a class="feat-row" href="https://lionelcastang-coder.github.io/hippocriate-fonctionnalites/fonc_01.html">
+  <span class="feat-id" style="background:#0070C022;color:#0070C0">F1</span>
+  <div class="feat-content">
+    <strong>Upload de tes cours personnels</strong>
+    <span>PDF, Word, PowerPoint, images — indexation IA en moins d'1 min.</span>
+  </div>
+</a>
+<a class="feat-row" href="https://lionelcastang-coder.github.io/hippocriate-fonctionnalites/fonc_02.html">
+  <span class="feat-id" style="background:#0070C022;color:#0070C0">F2</span>
+  <div class="feat-content">
+    <strong>Sécurité, vie privée & RGPD</strong>
+    <span>Tes cours restent privés. Chiffrement en transit et au repos.</span>
+  </div>
+</a>
+<a class="feat-row" href="https://lionelcastang-coder.github.io/hippocriate-fonctionnalites/fonc_03.html">
+  <span class="feat-id" style="background:#0070C022;color:#0070C0">F3</span>
+  <div class="feat-content">
+    <strong>Mes cours — espace de travail</strong>
+    <span>Bibliothèque personnelle, tags, recherche plein-texte.</span>
+  </div>
+</a>
+<a class="feat-row" href="https://lionelcastang-coder.github.io/hippocriate-fonctionnalites/fonc_04.html">
+  <span class="feat-id" style="background:#0070C022;color:#0070C0">F4</span>
+  <div class="feat-content">
+    <strong>Chat tuteur ancré sur tes cours</strong>
+    <span>Questions en langage naturel, réponses sourcées sur tes poly.</span>
+  </div>
+</a>
+<a class="feat-row" href="https://lionelcastang-coder.github.io/hippocriate-fonctionnalites/fonc_05.html">
+  <span class="feat-id" style="background:#0070C022;color:#0070C0">F5</span>
+  <div class="feat-content">
+    <strong>QCM commentés type concours</strong>
+    <span>QCM générés depuis tes cours, avec corrections détaillées.</span>
+  </div>
+</a>
+<a class="feat-row" href="https://lionelcastang-coder.github.io/hippocriate-fonctionnalites/fonc_06.html">
+  <span class="feat-id" style="background:#0070C022;color:#0070C0">F6</span>
+  <div class="feat-content">
+    <strong>Fiches de synthèse intelligentes</strong>
+    <span>Fiches auto-générées par chapitre, éditables et exportables.</span>
+  </div>
+</a>
+<a class="feat-row" href="https://lionelcastang-coder.github.io/hippocriate-fonctionnalites/fonc_07.html">
+  <span class="feat-id" style="background:#0070C022;color:#0070C0">F7</span>
+  <div class="feat-content">
+    <strong>Suivi de progression</strong>
+    <span>Dashboard par UE, courbes de maîtrise, points forts/faibles.</span>
+  </div>
+</a>
+<a class="feat-row" href="https://lionelcastang-coder.github.io/hippocriate-fonctionnalites/fonc_08.html">
+  <span class="feat-id" style="background:#0070C022;color:#0070C0">F8</span>
+  <div class="feat-content">
+    <strong>Flashcards à répétition espacée (SM-2)</strong>
+    <span>Algorithme SM-2 — révisions au bon moment, jamais trop tôt ni trop tard.</span>
+  </div>
+</a>
+<a class="feat-row" href="https://lionelcastang-coder.github.io/hippocriate-fonctionnalites/fonc_17.html">
+  <span class="feat-id" style="background:#0070C022;color:#0070C0">F17</span>
+  <div class="feat-content">
+    <strong>Schémas anatomiques — Mode Révision</strong>
+    <span>Schémas légendés interactifs, ancrage sur tes cours.</span>
+  </div>
+</a>
+<a class="feat-row" href="https://lionelcastang-coder.github.io/hippocriate-fonctionnalites/fonc_18.html">
+  <span class="feat-id" style="background:#0070C022;color:#0070C0">F18</span>
+  <div class="feat-content">
+    <strong>Communauté de fiches partagées par fac</strong>
+    <span>Fiches publiées par les meilleurs étudiants de ta fac.</span>
+  </div>
+</a></div><div class="inc-label">Spécifique Pharmacie — 1 fonctionnalité</div><div class="feat-list"><a class="feat-row" href="../../pharmacie/essentiel/pa1.html">
+  <span class="feat-id" style="background:#0070C022;color:#0070C0">PA1</span>
+  <div class="feat-content">
+    <strong>Module pharmacologie structuré (DCI)<span class="new-badge">NOUVEAU</span></strong>
+    <span>Fiches DCI auto-générées (mécanisme, indications, effets indésirables, interactions).</span>
+  </div>
+</a></div>
+</div>
+<div class="footer-nav">
+  <a class="nav-btn" href="../index.html">← 💊 Pharmacie</a>
+  <a class="nav-btn" href="../../medecine/essentiel/index.html">🏥 Médecine</a><a class="nav-btn" href="../../kinesitherapie/essentiel/index.html">🤸 Kinésithérapie</a><a class="nav-btn" href="../../dentaire/essentiel/index.html">🦷 Dentaire</a>
+</div>
+</body>
+</html>
