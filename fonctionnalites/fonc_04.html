@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HD42C28RDR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HD42C28RDR');
+  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#04 Chat tuteur ancré sur tes cours — HippocrIAte</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#063147;--cyan:#01BAEF;--teal:#20A39E;--amber:#FFB627;
+  --light:#F4F9FC;--gray:#E8EFF3;--border:#CFD8DC;
+  --text:#1A2B3C;--muted:#5C7080;--white:#fff;
+  --success:#2E7D32;--danger:#C62828;
+}
+html,body{background:var(--light);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;line-height:1.55;font-size:15px;overflow-x:hidden}
+a{color:var(--cyan);text-decoration:none}
+.site-header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:100}
+.header-top{padding:10px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.08)}
+.brand{font-size:20px;font-weight:800;letter-spacing:-0.5px;white-space:nowrap}
+.brand span{color:var(--cyan)}
+.nav-back{color:var(--cyan);font-size:12px;font-weight:600;white-space:nowrap}
+.nav-back:hover{opacity:.8}
+.header-nav{padding:5px 16px 6px;display:flex;flex-direction:column;gap:3px}
+.nav-row{display:flex;gap:2px;justify-content:center}
+.nav-row a{color:#cdd9e0;font-size:12px;padding:4px 0;border-radius:4px;transition:.15s;flex:1;text-align:center;font-weight:500}
+.nav-row a:hover,.nav-row a.active{background:rgba(255,255,255,.15);color:#fff}
+.feat-header{background:linear-gradient(135deg,var(--navy) 0%,#0B4F6C 100%);color:#fff;padding:32px 24px 28px}
+.feat-inner{display:flex;align-items:center;gap:24px;max-width:780px;margin:0 auto}
+.feat-text{flex:1;min-width:0}
+.feat-num{font-size:12px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+.feat-title{font-size:30px;font-weight:800;line-height:1.15;margin-bottom:10px}
+.feat-sub{font-size:15px;color:#cdd9e0}
+.feat-right{display:flex;align-items:center;gap:16px;flex-shrink:0}
+.feat-kpis{display:flex;flex-direction:column;gap:8px}
+.feat-kpi{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:8px 14px;min-width:158px}
+.kpi-label{font-size:11px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+.kpi-stars{font-size:15px;line-height:1}
+.star{font-size:14px}.star.filled{color:var(--amber)}.star.empty{color:rgba(255,255,255,.25)}
+.feat-picto{width:90px;height:90px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.main-layout{max-width:780px;margin:0 auto;padding:28px 16px;display:flex;flex-direction:column;gap:24px}
+.main-layout>*{min-width:0;width:100%}
+.value-card{background:#fff;border-radius:14px;border:1px solid var(--border);padding:24px 28px}
+.value-eyebrow{font-size:11px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.value-title{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:20px;line-height:1.3;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.value-items{display:flex;flex-direction:column;gap:18px}
+.vi-row{display:flex;align-items:flex-start;gap:16px}
+.vi-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.vi-icon.blue{background:rgba(1,186,239,.12)}
+.vi-icon.teal{background:rgba(32,163,158,.12)}
+.vi-icon.amber{background:rgba(255,182,39,.15)}
+.vi-icon.green{background:rgba(46,125,50,.1)}
+.vi-icon.purple{background:rgba(103,58,183,.1)}
+.vi-body{flex:1;min-width:0}
+.vi-title{font-weight:700;font-size:14px;color:var(--navy);margin-bottom:3px}
+.vi-desc{font-size:13px;color:var(--muted);line-height:1.55}
+.browser{background:#fff;border-radius:14px;box-shadow:0 6px 28px rgba(6,49,71,.12);border:1px solid var(--border);overflow:hidden}
+.browser-bar{background:var(--gray);padding:8px 12px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border)}
+.dot{width:10px;height:10px;border-radius:50%}.dot.r{background:#E57373}.dot.y{background:#FFC107}.dot.g{background:#66BB6A}
+.url-bar{flex:1;background:#fff;border-radius:12px;padding:3px 10px;font-size:12px;color:var(--muted);font-family:monospace;margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.browser-body{padding:18px;min-height:340px}
+.nav-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:20px;border:1.5px solid var(--border);font-weight:600;font-size:14px;color:var(--navy);transition:.15s;cursor:pointer;background:#fff}
+.nav-btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.nav-btn .nav-num{font-size:11px;font-weight:700;background:rgba(0,0,0,.08);border-radius:4px;padding:1px 5px;margin-right:6px;white-space:nowrap}
+.nav-btn.primary .nav-num{background:rgba(0,0,0,.12);margin-right:0;margin-left:6px}
+.nav-btn{max-width:300px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-btn.primary{background:var(--cyan);color:var(--navy);border-color:var(--cyan)}
+footer{background:var(--navy);color:#fff;text-align:center;padding:24px 32px;font-size:13px;color:#8BA4B2;margin-top:40px}
+footer .brand{display:inline-block;margin-bottom:6px}
+.btn-primary{background:var(--cyan);color:var(--navy);border:none;padding:9px 20px;border-radius:20px;font-weight:700;cursor:pointer;font-size:14px}
+.chat-shell{display:flex;flex-direction:column;height:340px}
+.chat-header{background:var(--navy);color:#fff;padding:10px 14px;font-weight:600;font-size:13px;border-radius:0}
+.chat-messages{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:#fff}
+.msg.user{align-self:flex-end;background:var(--cyan);color:var(--navy);padding:8px 14px;border-radius:16px 16px 2px 16px;font-size:13px;max-width:75%;font-weight:500}
+.msg.ai{display:flex;gap:8px;align-items:flex-start}
+.ai-avatar{width:28px;height:28px;background:var(--navy);color:var(--cyan);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0}
+.ai-bubble{background:var(--light);padding:10px 14px;border-radius:2px 16px 16px 16px;font-size:13px;max-width:85%;border:1px solid var(--border)}
+.source-tag{margin-top:8px;font-size:11px;color:var(--muted);background:#fff;display:inline-block;padding:2px 8px;border-radius:8px;border:1px solid var(--border)}
+.chat-input-bar{display:flex;align-items:center;gap:8px;border-top:1px solid var(--border);padding:8px 12px;background:#fff}
+@media(max-width:600px){
+  .header-top{padding:8px 14px}
+  .header-nav{padding:4px 10px 5px}
+  .nav-row a{font-size:11px;padding:3px 0}
+  .feat-header{padding:20px 14px 16px}
+  .feat-inner{flex-direction:column;align-items:flex-start;gap:16px}
+  .feat-title{font-size:22px}
+  .feat-sub{font-size:14px}
+  .feat-right{width:100%;justify-content:space-between}
+  .feat-kpi{min-width:0;flex:1}
+  .feat-picto{width:76px;height:76px}
+  .main-layout{padding:18px 14px;gap:18px}
+  .value-card{padding:18px}
+  .value-title{font-size:17px;margin-bottom:14px;padding-bottom:12px}
+  .vi-icon{width:40px;height:40px;font-size:19px;border-radius:10px}
+  .vi-title{font-size:13px}
+  .vi-desc{font-size:12px}
+  .browser-body{padding:12px;min-height:auto}
+  footer{padding:16px 14px;font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-top">
+    <div class="brand">Hippocr<span>IA</span>te</div>
+    <a href="acces_fonctionnalites.html" class="nav-back">← Toutes les fonctionnalités</a>
+  </div>
+  <nav class="header-nav">
+    <div class="nav-row">
+      <a href="fonc_01.html">#01</a><a href="fonc_02.html">#02</a><a href="fonc_03.html">#03</a><a href="fonc_04.html" class="active">#04</a><a href="fonc_05.html">#05</a><a href="fonc_06.html">#06</a><a href="fonc_07.html">#07</a><a href="fonc_08.html">#08</a><a href="fonc_09.html">#09</a>
+    </div>
+    <div class="nav-row">
+      <a href="fonc_10.html">#10</a><a href="fonc_11.html">#11</a><a href="fonc_12.html">#12</a><a href="fonc_13.html">#13</a><a href="fonc_14.html">#14</a><a href="fonc_15.html">#15</a><a href="fonc_16.html">#16</a><a href="fonc_17.html">#17</a><a href="fonc_18.html">#18</a>
+    </div>
+  </nav>
+</header>
+
+<div class="feat-header">
+  <div class="feat-inner">
+    <div class="feat-text">
+      <div class="feat-num">Fonctionnalité #04 / 18</div>
+      <h1 class="feat-title">Chat tuteur ancré sur tes cours</h1>
+      <p class="feat-sub">Un tuteur qui répond UNIQUEMENT à partir de tes polys, et cite ses sources.</p>
+    </div>
+    <div class="feat-right">
+      <div class="feat-kpis">
+        <div class="feat-kpi">
+          <div class="kpi-label">Gain de Temps</div>
+          <div class="kpi-stars"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span></div>
+        </div>
+        <div class="feat-kpi">
+          <div class="kpi-label">Intérêt Pédagogique</div>
+          <div class="kpi-stars"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span></div>
+        </div>
+      </div>
+      <div class="feat-picto">
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 10 Q8 6 12 6 H34 Q38 6 38 10 V28 Q38 32 34 32 H22 L14 40 V32 H12 Q8 32 8 28 Z" fill="rgba(255,255,255,0.95)" stroke="rgba(6,49,71,0.25)" stroke-width="1.5"/>
+          <circle cx="37" cy="37" r="12" fill="#01BAEF"/>
+          <path d="M33 37 L36 34 L41 39" stroke="#063147" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M33 40 L41 40" stroke="#063147" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main-layout">
+  <!-- Mockup -->
+  <div>
+    <div class="browser">
+      <div class="browser-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="url-bar">app.hippocriate.fr/cours/syst-nerveux/chat</span>
+      </div>
+      <div class="browser-body">
+
+<div class="chat-shell">
+  <div class="chat-header">Anatomie · Système nerveux</div>
+  <div class="chat-messages">
+    <div class="msg user">Quels nerfs sortent du foramen jugulaire ?</div>
+    <div class="msg ai">
+      <span class="ai-avatar">H</span>
+      <div class="ai-bubble">
+        Le foramen jugulaire livre passage à trois nerfs crâniens&nbsp;:
+        <ul style="margin:8px 0 0 16px;font-size:13px">
+          <li><strong>IX — Glosso-pharyngien</strong></li>
+          <li><strong>X — Nerf vague</strong> (mixte, parasympathique)</li>
+          <li><strong>XI — Accessoire spinal</strong></li>
+        </ul>
+        <div class="source-tag">📄 Source : poly UE5 Anatomie, p. 14</div>
+      </div>
+    </div>
+    <div class="msg user">Et le nerf vague, qu'est-ce qu'il innerve exactement ?</div>
+  </div>
+  <div class="chat-input-bar">
+    <input type="text" placeholder="Pose ta question sur le cours…" readonly style="flex:1;border:none;outline:none;font-size:14px;background:transparent">
+    <button class="btn-primary" style="padding:6px 16px;font-size:13px">↵</button>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Value card -->
+  <div>
+    <div class="value-card">
+      <div class="value-eyebrow">Valeur ajoutée pour l'étudiant</div>
+      <h2 class="value-title">Un tuteur honnête, pas un générateur</h2>
+      <div class="value-items">
+        <div class="vi-row">
+          <div class="vi-icon blue">📎</div>
+          <div class="vi-body">
+            <div class="vi-title">Réponses ancrées sur tes polys</div>
+            <div class="vi-desc">L'IA répond uniquement à partir de tes cours uploadés — jamais de contenu générique inventé.</div>
+          </div>
+        </div>
+        <div class="vi-row">
+          <div class="vi-icon teal">🔗</div>
+          <div class="vi-body">
+            <div class="vi-title">Chaque affirmation est citée</div>
+            <div class="vi-desc">Source chunk + page pour chaque réponse — tu peux vérifier directement dans ton poly.</div>
+          </div>
+        </div>
+        <div class="vi-row">
+          <div class="vi-icon amber">🚫</div>
+          <div class="vi-body">
+            <div class="vi-title">Zéro hallucination hors-corpus</div>
+            <div class="vi-desc">Si la question dépasse le contenu uploadé, l'IA le dit explicitement. Pas de réponse inventée.</div>
+          </div>
+        </div>
+        <div class="vi-row">
+          <div class="vi-icon green">🎚️</div>
+          <div class="vi-body">
+            <div class="vi-title">Multi-niveaux d'explication</div>
+            <div class="vi-desc">Simple, détaillé ou schématique — tu choisis la profondeur selon ton besoin du moment.</div>
+          </div>
+        </div>
+        <div class="vi-row">
+          <div class="vi-icon purple">💡</div>
+          <div class="vi-body">
+            <div class="vi-title">Questions connexes suggérées</div>
+            <div class="vi-desc">L'IA propose des pistes pour approfondir et relier les notions entre elles.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="max-width:780px;margin:0 auto;padding:0 16px 8px">
+  <div style="border-top:1px solid var(--border);padding:24px 0;display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap">
+    <a href="fonc_03.html" class="nav-btn">← Mes cours — espace de travail <span class="nav-num">#03</span></a>
+    <a href="fonc_05.html" class="nav-btn primary">QCM commentés type concours <span class="nav-num">#05</span> →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="brand">Hippocr<span style="color:var(--cyan)">IA</span>te</div>
+  <p>Le tuteur IA personnalisé pour réussir sa 1ère année de médecine.</p>
+</footer>
+
+<script>
+document.querySelectorAll('.flash-card').forEach(function(fc){
+  fc.addEventListener('click', function(e){
+    if(e.target.tagName==='BUTTON') return;
+    fc.classList.toggle('flipped');
+  });
+});
+</script>
+</body>
+</html>
